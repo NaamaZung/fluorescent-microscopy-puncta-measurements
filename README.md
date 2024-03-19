@@ -13,7 +13,7 @@ To generate results from code in project:
 ```
 from image_processing import calculate_puncta_per_cell_in_image
 
-# <image filename>,<output csv filename>
-calculate_puncta_per_cell_in_image("images/LD_Control.tif", "output.csv")
+# <image filename>,<output csv filename>, <optional flag to show image processing>
+calculate_puncta_per_cell_in_image("images/LD_Control.tif", "output.csv", show_plots=True)
 ```
 by Naama Zung https://naamazung.github.io/
