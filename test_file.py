@@ -20,7 +20,9 @@ def mean_sd_variance_of_the_puncta(number_of_puncta):
     return mean, variance, std_dev
 
 
-def test_mean_variance_and_sd():
+def test_mean_variance_and_sd(generate_data=True):
+    if generate_data:
+        calculate_puncta_per_cell_in_image("images/LD_Control.tif", "output.csv")
     list_of_puncta = df_to_list("output.csv")
     mean, variance, std_dev = mean_sd_variance_of_the_puncta(list_of_puncta)
     if mean < 1:
@@ -37,7 +39,9 @@ def test_mean_variance_and_sd():
         print(f"the standard deviation is: '{std_dev}' Something is wrong with the standard deviation")
 
 
-def test_negative_numbers():
+def test_negative_numbers(generate_data=True):
+    if generate_data:
+        calculate_puncta_per_cell_in_image("images/LD_Control.tif", "output.csv")
     list_of_puncta_number = df_to_list("output.csv")
     for number in list_of_puncta_number:
         if number < 0:
@@ -49,8 +53,8 @@ def test_negative_numbers():
 def main():
     calculate_puncta_per_cell_in_image("images/LD_Control.tif", "output.csv")
 
-    test_mean_variance_and_sd()
-    test_negative_numbers()
+    test_mean_variance_and_sd(False)
+    test_negative_numbers(False)
 
 
 if __name__ == "__main__":
